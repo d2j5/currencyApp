@@ -16,25 +16,22 @@ let requestOptions = {
   headers: myHeaders
 };
 
+// eventlistener for line 16
+document.getElementById("base-currency").addEventListener("change", getExchangeRates);
+document.getElementById("targetCurrency").addEventListener("change", getExchangeRates);
+document.getElementById("amount").addEventListener("change", getExchangeRates);
+
+
 function getExchangeRates() {
 fetch(`https://api.apilayer.com/exchangerates_data/convert?to=${targetCurrency}&from=${baseCurrency}&amount=${enteredAmount}`, requestOptions)
   .then((response) => response.json())
   .then((data) => {
     const rate = data.info.rate;
-    resultRate(rate);  
+    let newAmount = rate*enteredAmount;  
+    convertedAmount.innerHTML = newAmount + ' ' + targetCurrency;
   })
   .catch(error => console.log('error', error));
 }
 
-function resultRate(rate) {
-let newAmount = enteredAmount*rate;
-convertedAmount.innerHTML = newAmount + ' ' + targetCurrency;
-}
 
-echo "# currencyApp" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/d2j5/currencyApp.git
-git push -u origin main
+
