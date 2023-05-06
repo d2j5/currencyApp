@@ -39,9 +39,8 @@ const historicalResults = document.querySelector("#historical-rates-container");
 historicalButton.addEventListener("click", () => {
   const baseCurrency = document.querySelector("#base-currency").value;
   const targetCurrency = document.querySelector("#target-currency").value;
-  const date = "2023-01-01";
-
-
+  const date = document.getElementById("selectedDay").value;
+  
   fetch(`https://api.apilayer.com/exchangerates_data/${date}?symbols=${targetCurrency}&base=${baseCurrency}`, requestOptions)
   .then(response => response.json())
   .then(data => {
@@ -57,3 +56,7 @@ historicalButton.addEventListener("click", () => {
   })
   .catch(error => console.log('error', error));
 });
+
+
+
+  

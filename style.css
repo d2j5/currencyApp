@@ -6,6 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #f0f0f0;
+    max-width: 420px;
 }
 
 h1 {
@@ -46,6 +47,7 @@ p {
 
 #historical-rates-container {
     margin-top: 20px;
+    max-width: 420px;
 }
 
 #favorite-currency-pairs {
