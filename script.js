@@ -58,5 +58,29 @@ historicalButton.addEventListener("click", () => {
 });
 
 
+//favorite
+let favoritesPairs = []; 
+let favoritePicker = document.getElementById('favoritePicker');
+let favoriteCurrencies = document.getElementById('save-favorite')
+favoriteCurrencies.addEventListener("click", () => {
+  favoritesPairs.push([baseCurrency, targetCurrency]);
+  addeOptionstoFavoritePicker(); 
+})
 
+function addeOptionstoFavoritePicker(){
+  for (let index = 0; index < favoritesPairs.length; index++) {
+    const element = favoritesPairs[index];
+    let option = document.createElement("option");
+    let textContent = document.createTextNode(element[0] + ' '+ element[1]);
+    option.appendChild(textContent);
+    option.setAttribute('value', index);
+    favoritePicker.appendChild(option)  
+  }
+}
+
+favoritePicker.addEventListener('change',() => { 
+  let selected = favoritePicker.value;
+  selected[0];
+})
+// document.getElementById('save-favorite').addEventListener("click", () => {
   
